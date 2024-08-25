@@ -1,0 +1,89 @@
+--- old
++++ new
+@@ -1,0 +1,2 @@
++# OhMyTermuxScript 🧊
++**A collection of scripts for [Termux](https://github.com/termux/termux-app).**
+@@ -2,3 +4,2 @@
+-README OhMyTermuxScript
+-OhMyTermuxScript 🧊
+-A collection of scripts for Termux.
++> [!WARNING]
++> This program is in Alpha version (see [Update log](https://github.com/GiGiDKR/OhMyTermuxScript/edit/main/README.md#update-log) for more information.
+@@ -6,2 +7,1 @@
+-Warning
+-This program is in Alpha version (see Update log for more information.
++&nbsp;
+@@ -9,1 +9,1 @@
+- 
++### 🧊 Complete installation 
+@@ -11,3 +11,2 @@
+-🧊 Complete installation
+-Important
+-To use a beautiful command line script execution interface, gum can be used with -g or --gum parameter added to the execution command.
++> [!IMPORTANT]
++> To use a beautiful command line script execution interface, [gum](https://github.com/charmbracelet/gum) can be used with `-g` or `--gum` parameter added to the execution command. 
+@@ -15,1 +14,2 @@
+-From a clean install of Termux, paste the following code
++- From a clean install of Termux, paste the following code 
++```bash
+@@ -19,1 +19,3 @@
+-Type ls to display the list of scripts, then type
++```
++- Type `ls` to display the list of scripts, then type
++```bash
+@@ -21,1 +23,1 @@
+- 
++```
+@@ -23,2 +25,6 @@
+-🧊 Run a specific script
+-Electron Node.js
++&nbsp;
++
++### 🧊 Run a specific script 
++
++- [Electron](https://github.com/electron/electron) Node.js
++```bash
+@@ -26,1 +32,4 @@
+-Create Symbolic Link to external user directories
++```
++
++- Create [Symbolic Link](https://en.wikipedia.org/wiki/Symbolic_link) to external user directories
++```bash
+@@ -28,2 +37,5 @@
+-🧊 Additional parameters
+-Uninstall
++```
++
++## 🧊 Additional parameters
++- Uninstall
++```bash
+@@ -32,1 +44,3 @@
+-Using gum to magnify the command line interface
++```
++- Using [gum](https://github.com/charmbracelet/gum) to magnify the command line interface
++```bash
+@@ -35,2 +49,3 @@
+-Tip
+-These settings can be combined.
++```
++> [!TIP]
++> These settings can be combined.
+@@ -38,8 +53,10 @@
+-💻 Update log
+-Version 0.1.0 : Initial upload
+-Version 0.2.0 : OhMyTermux integration
+-⏺️ To do
+-Integrate the ability to use gum into scripts
+-Integrate uninstallation with a run command parameter
+-Update README.md to include script-specific commands
+-Upload other scripts after testing
++## 💻 Update log
++- Version 0.1.0 : Initial upload
++- Version 0.2.0 : [OhMyTermux](https://github.com/GiGiDKR/OhMyTermux) integration
++
++## ⏺️ To do
++- [X] Integrate the ability to use [gum](https://github.com/charmbracelet/gum) into scripts
++- [X] Integrate uninstallation with a run command parameter  
++- [ ] Update README.md to include script-specific commands
++- [ ] Upload other scripts after testing
++
