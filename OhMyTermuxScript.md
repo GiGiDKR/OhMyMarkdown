@@ -59,3 +59,4 @@ curl -sL https://raw.githubusercontent.com/GiGiDKR/OhMyTermuxScript/main/usersym
 - [X] Integrate uninstallation with a run command parameter  
 - [ ] Update README.md to include script-specific commands
 - [ ] Upload other scripts after testing
+
