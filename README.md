@@ -1,1 +1,1 @@
-# Obsidian sync with Termux
+# Obsidian sync with Termux !
