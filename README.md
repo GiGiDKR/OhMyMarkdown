@@ -1,1 +1,1 @@
-# Obsidian sync tasker
+# Obsidian sync with Termux
