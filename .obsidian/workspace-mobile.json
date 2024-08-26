@@ -11,8 +11,12 @@
             "id": "cc81208c8c265248",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "OhMyTermux.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "OhMyTermux.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "OhMyTermux.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -107,7 +113,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "OhMyTermux.md"
+          }
         }
       }
     ],
@@ -124,5 +132,16 @@
     }
   },
   "active": "cc81208c8c265248",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "LSD.md",
+    "Lip Gloss.md",
+    "Huh.md",
+    "OhMyTermux.md",
+    "Gum.md",
+    "Glow.md",
+    "OhMyTermuxScript.md",
+    "Debian Chroot.md",
+    "Bubble Tea.md",
+    "README OhMyTermuxScript.md"
+  ]
 }
