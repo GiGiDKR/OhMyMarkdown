@@ -24,6 +24,12 @@ To stop conflicts from happening with your note files, you can create a **.gitat
 
 ## Obsidian sync setup
 
+> [!TIP]
+> To install / update packages you can select a particular repository to increase the speed of download :
+> ```bash
+> termux-change-repo
+> ```
+
 1. Run the following commands :
 ```bash
 termux-setup-storage
@@ -32,31 +38,46 @@ termux-setup-storage
 pkg update && pkg upgrade -y && pkg install -y git openssh termux-api
 ```
 ```bash
-mkdir -p /storage/emulated/0/Documents/Repository
+mkdir -p /storage/emulated/0/Documents/Repository $HOME/OhMyObsidian
 ```
 ```bash
-git clone https://github.com/GiGiDKR/OhMyObsidianSync.git ~/storage/shared/Documents/Repository/OhMyObsidianSync
+git clone https://github.com/GiGiDKR/OhMyObsidian.git ~/storage/shared/Documents/Repository/OhMyObsidian
 ```
 > [!IMPORTANT]
 > Be aware that the next step will set [safe.directory](https://git-scm.com/docs/git-config/2.35.2#Documentation/git-config.txt-safedirectory) to '*'
    
 2. Run the setup script :
 ```bash
-mkdir -p $HOME/OhMyObsidianSync
-cp "/storage/emulated/0/Documents/Repository/OhMyObsidianSync/setup" ~/OhMyObsidianSync/ && chmod +x "$HOME/OhMyObsidianSync/setup" && source "$HOME/OhMyObsidianSync/setup"
+cp "/storage/emulated/0/Documents/Repository/OhMyObsidian/setup" ~/OhMyObsidian/ && chmod +x "$HOME/OhMyObsidian/setup" && source "$HOME/OhMyObsidian/setup"
 ```
 3. The above command copied an SSH public key to your clipboard (or was displayed to the screen), paste this into your Git host's SSH key authentication setting (eg [Github](https://github.com/settings/keys)). If you want to copy the SSH key again, run the **`setup`** script again.
 
 4. In Termux, you should now be in the Obsidian directory (verify with **`pwd`**) where you should clone your Obsidian vaults. Try not to put any special characters in your vault name.
 
 > [!NOTE]
-> - To sync all the vaults in the **`/storage/emulated/0/Documents/Repository/Obsidian`** folder, you can run :
+> - To sync all the vaults in the Obsidian folder, run :
 > **`sync`**
-> - To get the status of the vault sync, run :
+> - To get the status of the vault sync :
 > **`status`** 
-> - To open Obsidian from Termux, run: 
+> - To open Obsidian from Termux : 
 > **`open`**
 
+> [!TIP]
+> By default Git does not remember your credentials but it is possible to change this with the use of a Credential Helper.
+
+### Setting up a Credential Helper
+Run the following command to configure Git to remember your credentials during a session :
+```bash
+git config --global credential.helper cache
+```
+By default, this remembers credentials for 15 minutes. You can adjust this by adding a timeout in seconds, for example for 1 hour:
+```bash
+git config --global credential.helper 'cache --timeout=3600'
+```
+If you want Git to remember your credentials permanently (which may be less secure), use :
+```bash
+git config --global credential.helper store
+```
 
 ## Tasker Setup [^1]
 1. Install [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) from the Play Store.
@@ -83,6 +104,6 @@ All vaults will sync at 4am every day using a Tasker profile.
 - If this repository has new commits that you want, running the **`setup`** command should pull them down. After which, you may be prompted to run a command to update the setup script itself, if it was updated.
 
 ## Version history
-- **1.0.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) 
+- **1.0.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync)
 - **1.0.1** : Added zsh-friendly configuration 
 - **1.0.2** : WIP...
