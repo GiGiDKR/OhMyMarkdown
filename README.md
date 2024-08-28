@@ -1,5 +1,6 @@
 # OhMyMarkdown
-A collection of Markdown files synchronized from Obsidian on Android with Termux my project [OhMyObsidian](https://github.com/GiGiDKR/OhMyObsidian) adaptation of [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW)
+A collection of Markdown files synchronized from Obsidian on Android with Termux my project [OhMyObsidian](https://github.com/GiGiDKR/OhMyObsidian) adaptation of [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW).
+
 ## OhMyObsidian
 Easily sync your Obsidian vaults on Android using Git (SSH) + Termux, with automation and shortcuts using Tasker.
 It works by syncing a vault when it's opened and when it's closed.
@@ -21,7 +22,7 @@ To stop conflicts from happening with your note files, you can create a **.gitat
 1. Install [F-Droid](https://f-droid.org/en/) or [Obtainium](https://github.com/ImranR98/Obtainium)
 2. Install Termux from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [Obtainium](https://github.com/termux/termux-app)
 
-## OhMyObsidian setup
+## Obsidian sync setup
 
 1. Run the following commands :
 ```bash
