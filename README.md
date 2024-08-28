@@ -1,5 +1,5 @@
 # OhMyMarkdown
-A collection of Markdown files synchronized from Obsidian on Android with Termux my project [OhMyObsidian](git clone https://github.com/GiGiDKR/OhMyObsidian) adaptation of [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW)
+A collection of Markdown files synchronized from Obsidian on Android with Termux my project [OhMyObsidian](https://github.com/GiGiDKR/OhMyObsidian) adaptation of [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW)
 ## OhMyObsidian
 Easily sync your Obsidian vaults on Android using Git (SSH) + Termux, with automation and shortcuts using Tasker.
 It works by syncing a vault when it's opened and when it's closed.
