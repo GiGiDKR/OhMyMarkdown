@@ -15,12 +15,13 @@ To stop conflicts from happening with your note files, you can create a **.gitat
 ```gitattributes
 *.md merge=union
 ```
-## Termux Setup
-1. Install [F-Droid](https://f-droid.org/en/).
-2. Install [Termux](https://f-droid.org/en/packages/com.termux/) from F-Droid (NOT from the Play Store).
+## Termux setup
+1. Install [F-Droid](https://f-droid.org/en/) or [Obtainium](https://github.com/ImranR98/Obtainium)
+2. Install Termux from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [Obtainium](https://github.com/termux/termux-app)
 
-   The next steps will mostly ask you to run commands in Termux.
-3. Run the following commands :
+## OhMyObsidianSync setup
+
+1. Run the following commands :
 ```bash
 termux-setup-storage
 ```
@@ -36,24 +37,30 @@ git clone https://github.com/GiGiDKR/OhMyObsidianSync.git ~/storage/shared/Docum
 > [!IMPORTANT]
 > Be aware that the next step will set [safe.directory](https://git-scm.com/docs/git-config/2.35.2#Documentation/git-config.txt-safedirectory) to '*'
    
-4. Run the setup script :
+2. Run the setup script :
 ```bash
 mkdir -p $HOME/OhMyObsidianSync
 cp "/storage/emulated/0/Documents/Repository/OhMyObsidianSync/setup" ~/OhMyObsidianSync/ && chmod +x "$HOME/OhMyObsidianSync/setup" && source "$HOME/OhMyObsidianSync/setup"
 ```
-5. The above command copied an SSH public key to your clipboard (or was displayed to the screen), paste this into your Git host's SSH key authentication setting (eg [Github](https://github.com/settings/keys)). If you want to copy the SSH key again, run the setup script again by simply running **`setup`**.
+3. The above command copied an SSH public key to your clipboard (or was displayed to the screen), paste this into your Git host's SSH key authentication setting (eg [Github](https://github.com/settings/keys)). If you want to copy the SSH key again, run the **`setup`** script again.
 
-6. In Termux, you should now be in the Obsidian directory (verify with **`pwd`**, otherwise type **`cd /storage/emulated/0/repos/Obsidian`**) where you should now clone your Obsidian vaults. Try not to put any special characters in your vault name.
+4. In Termux, you should now be in the Obsidian directory (verify with **`pwd`**) where you should clone your Obsidian vaults. Try not to put any special characters in your vault name.
 
 > [!NOTE]
-> At this point, you can run **`sync`** to sync all the vaults in the **`/storage/emulated/0/Documents/Repository/OhMyObsidian`** folder.
+> - To sync all the vaults in the **`/storage/emulated/0/Documents/Repository/Obsidian`** folder, you can run :
+> **`sync`**
+> - To get the status of the vault sync, run :
+> **`status`** 
+> - To open Obsidian from Termux, run: 
+> **`open`**
 
-## Tasker Setup
+
+## Tasker Setup [^1]
 1. Install [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) from the Play Store.
 2. Install [F-Droid](https://f-droid.org/en/).
-3. Install [Termux:Tasker](https://f-droid.org/en/packages/com.termux.tasker/) and [Termux:API](https://f-droid.org/en/packages/com.termux.api/) apps from F-Droid (NOT from the Play Store).
-2. Enable the Termux permission in the settings for the Tasker app.
-3. Open the Obsidian app and add your vaults from the **`repos/Obsidian`** folder.
+3. Install [Termux:Tasker](https://f-droid.org/en/packages/com.termux.tasker/) and [Termux:API](https://f-droid.org/en/packages/com.termux.api/) from F-Droid (or from Obtainium : [Tasker](https://github.com/termux/termux-tasker) / [API](https://github.com/termux/termux-api))
+2. Enable the Termux permission in the Android settings of the Tasker app.
+3. Open the Obsidian app and add your vaults from the **`Obsidian`** folder.
 4. If you're using the Obsidian Git plugin, you should disable it for this device. You can do this in the plugin settings.
 5. Import the "Tasker project" into Tasker. Once you import it, I recommend you rearrange the tasks based on [this image](https://imgur.com/a/6Gj6aRj) for simplicity (to rearrange tasks, hold on a task, then drag). You can import the project in 2 ways. You can use this [TaskerNet link](https://taskernet.com/shares/?user=AS35m8n3cQwLQVpqM%2Fik6LZsANJ%2F8SkOXbatTM3JXxEQY4KYaxES06TbTgTRcO7ziHKZXfzQKT1B&id=Project%3AObsidian+Syncing), or you can import ([image](https://imgur.com/a/Fvyl8HF)) the .xml file from this repository. Once it's imported, there will be some prompts, I think one for giving Tasker "Usage Access" and one to enable all profiles. Accept all.
 6. **Vault launch icons** - There are 2 example tasks (Vault1 and Vault2). Rename the task to the name of your vault (you can name it anything). Then in the task, you'll see a "Variable Set" action, change the value to the **name of the folder** which contains the repository for that vault.
@@ -64,31 +71,15 @@ cp "/storage/emulated/0/Documents/Repository/OhMyObsidianSync/setup" ~/OhMyObsid
    3. Sync Log      - outputs the sync log.
 
 All vaults will sync at 4am every day using a Tasker profile.
+
+[^1]: Do not use for now: code adaptation to come in version 1.0.2 
 ## Notes
 - You should get a notification if a sync fails. This requires AutoNotification from the PlayStore. To disable this, disable the Sync Error Notification profile.
 - The individual vault icons to open specific vaults can be a bit slow. I've tried different ways to open a vault. Faster ways had one of two problems. Either it would open the vault correctly, but then if you left the app, it would not appear in the recents list. Or, it would load the app, load the last vault used, then load the vault you wanted which ends up being slower then the current method. You can find almost all the methods I tried in the Open Vault task (they are disabled).
 - If you prefer, you can have a popup menu (a scene or list dialog for example), to combine all the actions or vaults into one icon on your home screen.
 - If this repository has new commits that you want, running the **`setup`** command should pull them down. After which, you may be prompted to run a command to update the setup script itself, if it was updated.
 
-11. In Termux, you should now be in the Obsidian directory (verify with `pwd`) where you should now clone your Obsidian vaults. Try not to put any special characters (that are recognized by bash) in your vault name (eg an ampersand or exclamation point etc), if I remember correctly, it gave Tasker some issues, but you can probably get around that issue if you try. I don't know how spaces will behave.
-
-At this point, you can run `sync` to sync all the vaults in the `/storage/emulated/0/repos/Obsidian` folder.
-## Tasker Setup
-1. Enable the Termux permission in the settings for the Tasker app.
-2. Open the Obsidian app and add your vaults from the `repos/Obsidian` folder.
-3. If you're using the Obsidian Git plugin, you should disable it for this device. You can do this in the plugin settings.
-4. Import the "Tasker project" into Tasker. Once you import it, I recommend you rearrange the tasks based on [this image](https://imgur.com/a/6Gj6aRj) for simplicity (to rearrange tasks, hold on a task, then drag). You can import the project in 2 ways. You can use this [TaskerNet link](https://taskernet.com/shares/?user=AS35m8n3cQwLQVpqM%2Fik6LZsANJ%2F8SkOXbatTM3JXxEQY4KYaxES06TbTgTRcO7ziHKZXfzQKT1B&id=Project%3AObsidian+Syncing), or you can import ([image](https://imgur.com/a/Fvyl8HF)) the .xml file from this repository. Once it's imported, there will be some prompts, I think one for giving Tasker "Usage Access" and one to enable all profiles. Accept all.
-5. **Vault launch icons** - There are 2 example tasks (Vault1 and Vault2). Rename the task to the name of your vault (you can name it anything). Then in the task, you'll see a "Variable Set" action, change the value to the **name of the folder** which contains the repository for that vault.
-6. Give Termux the "Display over other apps" permission.
-7. Add the Vault launch icons as Tasker widgets (use the widget type that allows you to add them to folders) to the home screen. Also, add the 3 helper tasks as widgets (as needed): 
-   1. Sync Vaults   - syncs all vaults
-   2. Vaults Status - outputs the `git fetch && git status` of each vault
-   3. Sync Log      - outputs the sync log.
-
-All vaults will sync at 4am every day using a Tasker profile.
-## Notes
-- You should get a notification if a sync fails. This requires AutoNotification from the PlayStore. To disable this, disable the Sync Error Notification profile.
-- The individual vault icons to open specific vaults can be a bit slow. I've tried different ways to open a vault. Faster ways had one of two problems. Either it would open the vault correctly, but then if you left the app, it would not appear in the recents list. Or, it would load the app, load the last vault used, then load the vault you wanted which ends up being slower then the current method. You can find almost all the methods I tried in the Open Vault task (they are disabled).
-- If you prefer, you can have a popup menu (a scene or list dialog for example), to combine all the actions or vaults into one icon on your home screen.
-- If this repository has new commits that you want, running the `setup` command should pull them down. After which, you may be prompted to run a command to update the setup script itself, if it was updated.
-
+## Version history
+- **1.0.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW)
+- **1.0.1** : Added zsh-friendly configuration 
+- **1.0.2** : WIP...
