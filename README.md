@@ -63,21 +63,18 @@ cp "/storage/emulated/0/Documents/Repository/OhMyObsidian/setup" ~/OhMyObsidian/
 > **`open`**
 
 > [!TIP]
-> By default Git does not remember your credentials but it is possible to change this with the use of a Credential Helper.
-
-### Setting up a Credential Helper
-Run the following command to configure Git to remember your credentials during a session :
-```bash
+> By default Git does not remember your credentials, except with the use of a Credential Helper :
+> - Remember during a session :
+> ```bash
 git config --global credential.helper cache
-```
-By default, this remembers credentials for 15 minutes. You can adjust this by adding a timeout in seconds, for example for 1 hour:
-```bash
+>```
+> - Remember for 1 hour :
+>```bash
 git config --global credential.helper 'cache --timeout=3600'
-```
-If you want Git to remember your credentials permanently (which may be less secure), use :
-```bash
+>```
+> - Remember permanently (less secure) :
+>```bash
 git config --global credential.helper store
-```
 
 ## Tasker Setup [^1]
 1. Install [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) from the Play Store.
@@ -96,7 +93,7 @@ git config --global credential.helper store
 
 All vaults will sync at 4am every day using a Tasker profile.
 
-[^1]: Do not use for now: code adaptation to come in version 1.0.2 
+[^1]: Do not use for now : code adaptation to come in version 1.0.2 
 ## Notes
 - You should get a notification if a sync fails. This requires AutoNotification from the PlayStore. To disable this, disable the Sync Error Notification profile.
 - The individual vault icons to open specific vaults can be a bit slow. I've tried different ways to open a vault. Faster ways had one of two problems. Either it would open the vault correctly, but then if you left the app, it would not appear in the recents list. Or, it would load the app, load the last vault used, then load the vault you wanted which ends up being slower then the current method. You can find almost all the methods I tried in the Open Vault task (they are disabled).
@@ -104,6 +101,6 @@ All vaults will sync at 4am every day using a Tasker profile.
 - If this repository has new commits that you want, running the **`setup`** command should pull them down. After which, you may be prompted to run a command to update the setup script itself, if it was updated.
 
 ## Version history
-- **1.0.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync)
+- **1.0.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync))
 - **1.0.1** : Added zsh-friendly configuration 
 - **1.0.2** : WIP...
