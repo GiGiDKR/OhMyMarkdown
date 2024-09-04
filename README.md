@@ -1,13 +1,24 @@
 # OhMyMarkdown 🔖
-A collection of Markdown files synchronized from Obsidian on Android with Termux my project [OhMyObsidian](https://github.com/GiGiDKR/OhMyObsidian) **adaptation of [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW).**
+**A collection of Markdown files synchronized from Obsidian on Android with Termux.**
+
+**My project [OhMyObsidian](https://github.com/GiGiDKR/OhMyObsidian) is an adaptation of [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync) by [Dovie Weinstock](https://github.com/DovieW).**
+> [!TIP]
+> If you use it you can clone this repository into "Obsidian" directory :
+> 
+> ```bash
+> cd $OBSIDIAN_DIR_PATH
+> git clone https://github.com/GiGiDKR/OhMyMarkdown.git
+> ```
 
 ## OhMyObsidian 📑
-Easily sync your Obsidian vaults on Android using Git (SSH) + Termux, with automation and shortcuts using Tasker.
-It works by syncing a vault when it's opened and when it's closed.
 
-[Here's an image](https://bit.ly/40hLIyt) of what it looks like, once complete with shortcuts to some optional utility functions. Each vault will have it's own icon. This allows syncing to be more efficient as without it, all vaults will sync each time in a specific order. Instead of just the vault that you open being synced immediately. If you only use one vault or don't mind the inefficiency of waiting for the vault that you just opened to be updated, then you can use the default Obsidian app icon. Also, all vaults are synced once a day (defaults to 4am).
+> [!NOTE]
+> [French version of README.md](README-FR.md)
 
-To prevent conflicts, I recommend you add the following lines to your **.gitignore** file in all your vaults that you'll be syncing using Git. If you notice a plugin has a file which is often in conflict, you'll want to add that as well (remember to un-track it with **`git rm --cached <file>`**):
+Easily sync your [Obsidian](https://github.com/obsidianmd/obsidian-releases) vaults on Android using Git (SSH) + [Termux](https://github.com/termux/termux-app).
+Automation and shortcuts using [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) which works whether a vault is open or not to synchronize it. [^1]
+
+To prevent conflicts, add the following lines to your **.gitignore** file in all your vaults that you'll be syncing using Git. If you notice a plugin has a file which is often in conflict, you'll want to add that as well (remember to un-track it with **`git rm --cached <file>`**):
 ```gitignore
 /.obsidian/workspace.json
 /.obsidian/workspace-mobile.json
@@ -18,17 +29,24 @@ To stop conflicts from happening with your note files, you can create a **.gitat
 ```gitattributes
 *.md merge=union
 ```
-## Termux setup
+
+### Termux setup
 1. Install [F-Droid](https://f-droid.org/en/) or [Obtainium](https://github.com/ImranR98/Obtainium)
 2. Install Termux from [F-Droid](https://f-droid.org/en/packages/com.termux/) or [Obtainium](https://github.com/termux/termux-app)
 
-## Obsidian sync setup
+### Obsidian sync setup
 
-> [!TIP]
-> To install / update packages you can select a particular repository to increase the speed of download :
+> [!IMPORTANT]
+> A full installation script is available ~~with optional use of [gum](https://github.com/charmbracelet/gum) to get a cleaner and beautiful scripting interface~~.
+> To run it enter:
 > ```bash
-> termux-change-repo
+> curl -o $HOME/install.sh https://raw.githubusercontent.com/GiGiDKR/OhMyObsidian/main/install.sh && chmod +x $HOME/install.sh && $HOME/install.sh
 > ```
+> ~~🎀 Add `--gum` or `-g` at the end of the command to use the [gum](https://github.com/charmbracelet/gum) interface~~
+
+#### Manual installation  
+
+- **Optional** : To install / update packages you can select a particular repository to increase the speed of download : `termux-change-repo`
 
 1. Run the following commands :
 ```bash
@@ -43,7 +61,7 @@ mkdir -p /storage/emulated/0/Documents/Repository $HOME/OhMyObsidian
 ```bash
 git clone https://github.com/GiGiDKR/OhMyObsidian.git ~/storage/shared/Documents/Repository/OhMyObsidian
 ```
-> [!IMPORTANT]
+> [!WARNING]
 > Be aware that the next step will set [safe.directory](https://git-scm.com/docs/git-config/2.35.2#Documentation/git-config.txt-safedirectory) to '*'
    
 2. Run the setup script :
@@ -52,34 +70,42 @@ cp "/storage/emulated/0/Documents/Repository/OhMyObsidian/setup" ~/OhMyObsidian/
 ```
 3. The above command copied an SSH public key to your clipboard (or was displayed to the screen), paste this into your Git host's SSH key authentication setting (eg [Github](https://github.com/settings/keys)). If you want to copy the SSH key again, run the **`setup`** script again.
 
-4. In Termux, you should now be in the Obsidian directory (verify with **`pwd`**) where you should clone your Obsidian vaults. Try not to put any special characters in your vault name.
+4. In Termux, you should now be in the Obsidian directory (verify with **`pwd`**) where you can clone your Obsidian vaults. Try not to put any special characters in your vault name.
+
+- Obsidian documentation in Markdown format is available in the [GitHub repository](https://github.com/obsidianmd/obsidian-help/tree/master/en).
 
 > [!NOTE]
-> - To sync all the vaults in the Obsidian folder, run :
+> - Sync all the vaults in Obsidian folder :
 > **`sync`**
-> - To get the status of the vault sync :
+> - Get the status of the vault sync :
 > **`status`** 
-> - To open Obsidian from Termux : 
+> - Open Obsidian from Termux : 
 > **`open`**
 
 > [!TIP]
-> By default Git does not remember your credentials, except with the use of a Credential Helper :
-> - Remember during a session :
+> By default Git does not remember your credentials but it is possible to change this with a Credential Helper :
+>
+> Remember your credentials during a session :
 > ```bash
-git config --global credential.helper cache
->```
-> - Remember for 1 hour :
->```bash
-git config --global credential.helper 'cache --timeout=3600'
->```
-> - Remember permanently (less secure) :
->```bash
-git config --global credential.helper store
+> git config --global credential.helper cache
+> ```
+> Remember during 1 hour :
+> ```bash
+> git config --global credential.helper 'cache --timeout=3600'
+> ```
+> Remember permanently (less secure) :
+> ```bash
+> git config --global credential.helper store
+> ```
 
 ## Tasker Setup [^1]
+
+
+[Here's an image](https://bit.ly/40hLIyt) of what it looks like, once complete with shortcuts to some optional utility functions. Each vault will have it's own icon. This allows syncing to be more efficient as without it, all vaults will sync each time in a specific order. Instead of just the vault that you open being synced immediately. If you only use one vault or don't mind the inefficiency of waiting for the vault that you just opened to be updated, then you can use the default Obsidian app icon. Also, all vaults are synced once a day (defaults to 4am).
+
 1. Install [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) from the Play Store.
 2. Install [F-Droid](https://f-droid.org/en/).
-3. Install [Termux:Tasker](https://f-droid.org/en/packages/com.termux.tasker/) and [Termux:API](https://f-droid.org/en/packages/com.termux.api/) from F-Droid (or from Obtainium : [Tasker](https://github.com/termux/termux-tasker) / [API](https://github.com/termux/termux-api))
+3. Install [Termux:Tasker](https://f-droid.org/en/packages/com.termux.tasker/) and [Termux:API](https://f-droid.org/en/packages/com.termux.api/) from F-Droid or install from Obtainium : [Termux:Tasker](https://github.com/termux/termux-tasker) / [Termux:API](https://github.com/termux/termux-api))
 2. Enable the Termux permission in the Android settings of the Tasker app.
 3. Open the Obsidian app and add your vaults from the **`Obsidian`** folder.
 4. If you're using the Obsidian Git plugin, you should disable it for this device. You can do this in the plugin settings.
@@ -93,14 +119,19 @@ git config --global credential.helper store
 
 All vaults will sync at 4am every day using a Tasker profile.
 
-[^1]: Do not use for now : code adaptation to come in version 1.0.2 
-## Notes
+[^1]: Do not use for now : adaptation to come in v1.1
+
+### Notes
 - You should get a notification if a sync fails. This requires AutoNotification from the PlayStore. To disable this, disable the Sync Error Notification profile.
 - The individual vault icons to open specific vaults can be a bit slow. I've tried different ways to open a vault. Faster ways had one of two problems. Either it would open the vault correctly, but then if you left the app, it would not appear in the recents list. Or, it would load the app, load the last vault used, then load the vault you wanted which ends up being slower then the current method. You can find almost all the methods I tried in the Open Vault task (they are disabled).
 - If you prefer, you can have a popup menu (a scene or list dialog for example), to combine all the actions or vaults into one icon on your home screen.
 - If this repository has new commits that you want, running the **`setup`** command should pull them down. After which, you may be prompted to run a command to update the setup script itself, if it was updated.
 
-## 💻 Version history
-- **1.0.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync))
-- **1.0.1** : Added zsh-friendly configuration 
-- **1.0.2** : WIP...
+### Version history
+- 1.0 : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync))
+- 1.0.1 : Added zsh-friendly configuration
+- 1.0.2 : French translation 
+- 1.0.3 : Added a automated [script](https://raw.githubusercontent.com/GiGiDKR/OhMyObsidian/main/install.sh)
+- **1.1** : In development 
+   -    [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) integration
+   -    [Gum](https://github.com/charmbracelet/gum) integration
