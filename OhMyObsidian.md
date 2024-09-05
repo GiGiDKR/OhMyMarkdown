@@ -1,7 +1,7 @@
 # OhMyObsidian 📑
 
 > [!NOTE]
-> [French version of README.md](README-FR.md)
+> [French version of README.md](OhMyObsidian-FR.md)
 
 Easily sync your [Obsidian](https://github.com/obsidianmd/obsidian-releases) vaults on Android using Git (SSH) + [Termux](https://github.com/termux/termux-app).
 Automation and shortcuts using [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) which works whether a vault is open or not to synchronize it. [^1]
@@ -25,12 +25,12 @@ To stop conflicts from happening with your note files, you can create a **.gitat
 ## Obsidian sync setup
 
 > [!IMPORTANT]
-> A full installation script is available with optional use of [gum](https://github.com/charmbracelet/gum) to get a cleaner and beautiful scripting interface.
+> A full installation script is available ~~with optional use of [gum](https://github.com/charmbracelet/gum) to get a cleaner and beautiful scripting interface~~.
 > To run it enter:
 > ```bash
 > curl -o $HOME/install.sh https://raw.githubusercontent.com/GiGiDKR/OhMyObsidian/main/install.sh && chmod +x $HOME/install.sh && $HOME/install.sh
 > ```
-> 🎀 Add `--gum` or `-g` at the end of the command to use the [gum](https://github.com/charmbracelet/gum) interface
+> ~~🎀 Add `--gum` or `-g` at the end of the command to use the [gum](https://github.com/charmbracelet/gum) interface~~
 
 ### Manual installation  
 
@@ -116,10 +116,10 @@ All vaults will sync at 4am every day using a Tasker profile.
 - If this repository has new commits that you want, running the **`setup`** command should pull them down. After which, you may be prompted to run a command to update the setup script itself, if it was updated.
 
 ## Version history
-- **1.0** : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync)
-- **1.0.1** : Added zsh-friendly configuration
-- **1.0.2** : French translation 
-- **1.0.3** : Added a automated [script](install.sh)
-- **1.1** : In development :
-    - Tasker integration
-    - Added ability to use [gum](https://github.com/charmbracelet/gum) 
+- 1.0 : Initial version (adapted from [Obsidian-Android-Sync](https://github.com/DovieW/obsidian-android-sync))
+- 1.0.1 : Added zsh-friendly configuration
+- 1.0.2 : French translation 
+- 1.0.3 : Added a automated [script](install.sh)
+- **1.1** : In development 
+   -    [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) integration
+   -    [Gum](https://github.com/charmbracelet/gum) integration
