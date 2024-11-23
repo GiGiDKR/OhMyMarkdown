@@ -1,6 +1,6 @@
 # OhMyTermux 🧊
 
-**Automated and custom installation of [Termux](https://github.com/termux) : packages, shell, plugins, prompts, fonts and themes selectable.**
+- **Automated and custom installation of [Termux](https://github.com/termux) : packages, shell, plugins, prompts, fonts and themes selectable.**
 
 #### Optional installation of:
 
