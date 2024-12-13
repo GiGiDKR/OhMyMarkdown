@@ -1,7 +1,7 @@
 EasyBashGUI
 ===========================
 
-Façon simplifiée de coder des dialogues d'interface graphique en bash ! - Documentation
+Façon simplifiée de coder des dialogues d'interface graphique en bash !
 
 - [Modes d'utilisation](#modes-dutilisation)
 - [Installation](#installation)
