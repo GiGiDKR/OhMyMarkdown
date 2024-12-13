@@ -1,4 +1,4 @@
-EasyBashGUI - documentation
+EasyBashGUI
 ===========================
 
 Façon simplifiée de coder des dialogues d'interface graphique en bash ! - Documentation
