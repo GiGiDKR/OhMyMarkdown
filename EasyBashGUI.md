@@ -1,7 +1,7 @@
 EasyBashGUI
 ===========================
 
-Simplified way to code bash made GUI frontend dialogs! - Documentation
+Simplified way to code bash made GUI frontend dialogs !
 
 - [Modes of use](#modes-of-use)
 - [Installation](#installation)
