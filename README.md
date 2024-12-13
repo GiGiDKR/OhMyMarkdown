@@ -13,7 +13,7 @@
 ## OhMyObsidian 📑
 
 > [!NOTE]
-> [French version of README.md](README-FR.md)
+> [French version of README.md](https://github.com/GiGiDKR/OhMyObsidian/blob/main/README-FR.md)
 
 Easily sync your [Obsidian](https://github.com/obsidianmd/obsidian-releases) vaults on Android using Git (SSH) + [Termux](https://github.com/termux/termux-app).
 Automation and shortcuts using [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.tasker) which works whether a vault is open or not to synchronize it. [^1]
