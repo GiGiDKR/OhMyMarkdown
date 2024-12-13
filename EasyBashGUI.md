@@ -1,4 +1,4 @@
-EasyBashGUI - documentation
+EasyBashGUI
 ===========================
 
 Simplified way to code bash made GUI frontend dialogs! - Documentation
